@@ -175,97 +175,102 @@
         </div>
     </section>
 
-   <section id="simulator" style="background-color: #0B0E14; color: white; padding: 40px; font-family: 'Arial', sans-serif; border-radius: 15px; max-width: 600px; margin: auto; border: 1px solid #00E5FF;">
-    <h2 style="color: #00E5FF; text-align: center;">Simulateur d'Autonomie <span style="color: white;">ROIA.</span></h2>
+ <section id="roia-simulator" style="background-color: #0B0E14; color: white; padding: 40px; font-family: 'Arial', sans-serif; border-radius: 15px; max-width: 650px; margin: auto; border: 2px solid #00E5FF; box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);">
+    <h2 style="color: #00E5FF; text-align: center; text-transform: uppercase; letter-spacing: 2px;">Simulateur Expert <span style="color: white;">ROIA.</span></h2>
     
-    <div style="margin-bottom: 25px;">
-        <label>Température Extérieure : <span id="tempVal" style="color: #00E5FF; font-weight: bold;">20</span>°C</label>
-        <input type="range" id="tempSlider" min="-10" max="40" value="20" step="1" style="width: 100%; cursor: pointer; accent-color: #00E5FF;">
-        <p id="coldWarning" style="color: #FFA500; font-size: 0.8em; margin-top: 5px; display: none;">❄️ Température basse : Efficacité batterie réduite de 20%</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+        <div>
+            <label style="display: block; margin-bottom: 8px;">Tension Système (V)</label>
+            <input type="number" id="voltInput" value="50.4" step="0.1" style="width: 100%; background: #1A1F26; color: #00E5FF; border: 1px solid #333; padding: 12px; border-radius: 5px; font-weight: bold;">
+        </div>
+        <div>
+            <label style="display: block; margin-bottom: 8px;">Capacité (Ah)</label>
+            <input type="number" id="ahInput" value="9.6" step="0.1" style="width: 100%; background: #1A1F26; color: #00E5FF; border: 1px solid #333; padding: 12px; border-radius: 5px; font-weight: bold;">
+        </div>
     </div>
 
     <div style="margin-bottom: 25px;">
-        <label>Poids total (Utilisateur + Vélo) : <span id="weightVal" style="color: #00E5FF; font-weight: bold;">99</span> kg</label>
+        <label>Température : <span id="tempVal" style="color: #00E5FF; font-weight: bold;">20</span>°C</label>
+        <input type="range" id="tempSlider" min="-10" max="40" value="20" step="1" style="width: 100%; cursor: pointer; accent-color: #00E5FF;">
+        <p id="coldAlert" style="color: #FFA500; font-size: 0.85em; margin-top: 5px; display: none; font-style: italic;">❄️ Alerte : Efficacité réduite de 20% sous 5°C</p>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+        <label>Poids total : <span id="weightVal" style="color: #00E5FF; font-weight: bold;">99</span> kg</label>
         <input type="range" id="weightSlider" min="50" max="150" value="99" step="1" style="width: 100%; cursor: pointer; accent-color: #00E5FF;">
     </div>
 
     <div style="margin-bottom: 25px;">
-        <label>Type de relief :</label>
-        <select id="reliefSelect" style="width: 100%; background: #1A1F26; color: white; border: 1px solid #00E5FF; padding: 10px; border-radius: 5px; cursor: pointer;">
-            <option value="15">Plat (Wervik/Comines)</option>
+        <label>Terrain / Relief :</label>
+        <select id="reliefSelect" style="width: 100%; background: #1A1F26; color: white; border: 1px solid #333; padding: 12px; border-radius: 5px; cursor: pointer;">
+            <option value="15">Plat (Wervik / Comines)</option>
             <option value="22">Vallonné</option>
-            <option value="30">Fort dénivelé / Montagne</option>
+            <option value="30">Fort dénivelé</option>
         </select>
     </div>
 
-    <hr style="border: 0.5px solid #333; margin: 30px 0;">
-
-    <div style="text-align: center;">
-        <p style="font-size: 1.2em; margin-bottom: 10px;">Autonomie estimée :</p>
-        <div id="rangeResult" style="font-size: 3em; font-weight: bold; color: #00E5FF;">-- km</div>
+    <div style="background: rgba(0, 229, 255, 0.05); padding: 20px; border-radius: 10px; text-align: center; border-top: 1px solid #333;">
+        <p style="font-size: 1.1em; margin-bottom: 5px; color: #DAFFDE;">Autonomie Prédictive :</p>
+        <div id="rangeResult" style="font-size: 3.5em; font-weight: bold; color: #00E5FF; text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);">-- km</div>
+        <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Énergie calculée : <span id="energyVal">--</span> Wh</p>
     </div>
 
     <script>
-        // --- CONFIGURATION AUGMENT ALTURO ---
-        const VOLTAGE = 50.4;
-        const AMPERE_HOURS = 9.6;
-        const ENERGY = VOLTAGE * AMPERE_HOURS; // ~484 Wh
-
-        // Éléments DOM
-        const tempSlider = document.getElementById('tempSlider');
-        const weightSlider = document.getElementById('weightSlider');
-        const reliefSelect = document.getElementById('reliefSelect');
-        const rangeResult = document.getElementById('rangeResult');
+        const vIn = document.getElementById('voltInput');
+        const ahIn = document.getElementById('ahInput');
+        const tSld = document.getElementById('tempSlider');
+        const wSld = document.getElementById('weightSlider');
+        const rSel = document.getElementById('reliefSelect');
         
-        const tempValDisplay = document.getElementById('tempVal');
-        const weightValDisplay = document.getElementById('weightVal');
-        const coldWarning = document.getElementById('coldWarning');
+        const res = document.getElementById('rangeResult');
+        const enVal = document.getElementById('energyVal');
+        const tDisp = document.getElementById('tempVal');
+        const wDisp = document.getElementById('weightVal');
+        const cAlert = document.getElementById('coldAlert');
 
-        function calculateROIA() {
-            // 1. Récupération des valeurs
-            const temp = parseFloat(tempSlider.value);
-            const weight = parseFloat(weightSlider.value);
-            const baseCons = parseFloat(reliefSelect.value);
+        function updateROIA() {
+            const V = parseFloat(vIn.value);
+            const Ah = parseFloat(ahIn.value);
+            const T = parseFloat(tSld.value);
+            const W = parseFloat(wSld.value);
+            const R = parseFloat(rSel.value);
 
-            // 2. Mise à jour de l'affichage texte
-            tempValDisplay.innerText = temp;
-            weightValDisplay.innerText = weight;
+            tDisp.innerText = T;
+            wDisp.innerText = W;
 
-            // 3. Logique Thermique (La correction demandée)
-            let efficiency = 0.85;
-            if (temp < 5) {
-                efficiency = 0.85 * 0.80; // Chute de 20%
-                coldWarning.style.display = "block";
+            // Calcul Énergie E = V * Ah
+            const E = V * Ah;
+            enVal.innerText = E.toFixed(0);
+
+            // Efficacité η (Standard 0.85, Froid 0.68)
+            let eta = 0.85;
+            if (T < 5) {
+                eta = 0.68;
+                cAlert.style.display = "block";
             } else {
-                coldWarning.style.display = "none";
+                cAlert.style.display = "none";
             }
 
-            // 4. Calcul de la Consommation (C) avec pénalité de poids
-            // Base 80kg. 0.12 Wh/km par kg supplémentaire
-            let weightPenalty = 0;
-            if (weight > 80) {
-                weightPenalty = (weight - 80) * 0.12;
-            }
-            let totalCons = baseCons + weightPenalty;
+            // Consommation C avec pénalité poids (Base 80kg)
+            let wDiff = W - 80;
+            if (wDiff < 0) wDiff = 0;
+            let wPenalty = wDiff * 0.12;
+            let C = R + wPenalty;
 
-            // 5. Formule Physique ROIA : D = (E * η) / C
-            let distance = (ENERGY * efficiency) / totalCons;
+            // Formule sans parenthèses : D = E * η / C
+            let D = E * eta / C;
 
-            // 6. Affichage du résultat
-            rangeResult.innerText = distance.toFixed(1) + " km";
+            res.innerText = D.toFixed(1) + " km";
         }
 
-        // --- ÉCOUTEURS D'ÉVÉNEMENTS (Le coeur de la correction) ---
-        // On écoute l'événement 'input' pour une réaction en temps réel
-        tempSlider.addEventListener('input', calculateROIA);
-        weightSlider.addEventListener('input', calculateROIA);
-        reliefSelect.addEventListener('change', calculateROIA);
+        // Listeners
+        [vIn, ahIn, tSld, wSld].forEach(el => el.addEventListener('input', updateROIA));
+        rSel.addEventListener('change', updateROIA);
 
-        // Calcul initial au chargement de la page
-        calculateROIA();
+        // Init
+        updateROIA();
     </script>
 </section>
-
     <section id="contact" style="padding: 100px 20px;">
         <h2 class="section-title">Prêt à <span>booster</span> votre boutique ?</h2>
         <p style="text-align: center; margin-bottom: 40px; color: var(--text-dim); font-size: 20px;">
