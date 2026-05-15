@@ -206,6 +206,127 @@
         </div>
     </section>
 
+   <section id="expert-calc" style="background: var(--bg-dark); padding: 100px 20px;">
+        <h2 class="section-title">Module <span>Expert</span> ROIA</h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 50px; font-size: 18px;">
+            Calcul de l'autonomie réelle basé sur la physique du système.
+        </p>
+
+        <div class="card" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <h3 style="font-size: 20px; color: var(--blue-electric); margin-bottom: 5px;">Spécifications Batterie</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Tension du système</label>
+                        <input type="number" id="v-input" value="48" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Ampérage heure</label>
+                        <input type="number" id="ah-input" value="12.5" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                </div>
+
+                <h3 style="font-size: 20px; color: var(--blue-electric); margin-top: 15px; margin-bottom: 5px;">Facteurs de Terrain</h3>
+                
+                <div style="margin-bottom: 10px;">
+                    <label style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
+                        Poids total <span id="weight-val" style="color: var(--blue-electric);">95 kg</span>
+                    </label>
+                    <input type="range" id="weight-input" min="60" max="180" value="95" style="width: 100%; accent-color: var(--blue-electric);">
+                </div>
+                
+                <div style="margin-bottom: 10px;">
+                    <label style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
+                        Température extérieure <span id="temp-val" style="color: var(--blue-electric);">20 °C</span>
+                    </label>
+                    <input type="range" id="temp-input" min="-5" max="35" value="20" style="width: 100%; accent-color: var(--blue-electric);">
+                </div>
+
+                <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Type de relief</label>
+                <select id="terrain-input" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    <option value="15">Terrain plat</option>
+                    <option value="22">Terrain vallonné</option>
+                    <option value="30">Fort dénivelé</option>
+                </select>
+            </div>
+
+            <div style="background: rgba(0, 119, 200, 0.05); border: 2px solid var(--blue-electric); border-radius: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 30px;">
+                <span style="text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--text-dim);">Distance réelle estimée</span>
+                <div style="font-size: 85px; font-weight: 700; margin: 15px 0; color: #fff;">
+                    <span id="dist-result">34</span> <span style="font-size: 30px; color: var(--blue-electric);">km</span>
+                </div>
+                
+                <div style="background: #161b22; padding: 20px; border-radius: 12px; width: 100%; text-align: left;">
+                    <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 5px;">Énergie disponible : <span id="energy-calc" style="color: white; font-weight: 600;">600</span> Wh</p>
+                    <p style="font-size: 14px; color: var(--text-dim);">Efficacité du système : <span style="color: white; font-weight: 600;">85%</span></p>
+                </div>
+                <p style="font-size: 12px; margin-top: 25px; font-style: italic; color: #586069; line-height: 1.4;">
+                    Algorithme ROIA certifié<br>Analyse prédictive de décharge batterie.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Prêt à <span>booster</span> votre boutique ?</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: var(--text-dim); font-size: 20px;">
+            Recevez un audit gratuit et une démonstration de l'IA ROIA pour votre enseigne.
+        </p>
+
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <form action="https://formspree.io/f/mzdonbkg" method="POST" style="display: grid; gap: 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nom du Gérant</label>
+                        <input type="text" name="nom_complet" placeholder="Ex: Jean Dupont" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nom de l'enseigne</label>
+                        <input type="text" name="entreprise" placeholder="Ex: Mobilité Performance" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Email Professionnel</label>
+                        <input type="email" name="email" placeholder="contact@boutique.com" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Ville / Pays</label>
+                        <input type="text" name="localisation" placeholder="Ex: Lille, Bruxelles, Paris..." required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Taille du catalogue</label>
+                    <select name="taille_stock" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <option value="1-10">1 à 10 modèles</option>
+                        <option value="10-30">10 à 30 modèles</option>
+                        <option value="30-50">30 à 50 modèles</option>
+                        <option value="50+">Plus de 50 modèles</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Votre projet</label>
+                    <textarea name="message" rows="4" placeholder="Décrivez votre besoin..." style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white; resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">
+                    Envoyer ma demande d'audit
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div style="font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 10px;">ROIA<span>.</span></div>
+        <p style="color: var(--text-dim); margin-bottom: 10px;">Expertise IA pour la Mobilité Électrique</p>
+        <p style="color: var(--text-dim); font-size: 14px;">© 2026 Agence ROIA. Tous droits réservés.</p>
+    </footer>
+
     <script>
         function updateExpertCalc() {
             const v = parseFloat(document.getElementById('v-input').value) || 0;
@@ -214,45 +335,27 @@
             const temp = parseInt(document.getElementById('temp-input').value);
             const baseC = parseInt(document.getElementById('terrain-input').value);
 
-            // Mise à jour des affichages
             document.getElementById('weight-val').innerText = weight + " kg";
             document.getElementById('temp-val').innerText = temp + " °C";
 
-            // 1. Energie (E = V * Ah)
             const e = v * ah;
             document.getElementById('energy-calc').innerText = e.toFixed(0) + " Wh";
 
-            // 2. Efficacité (eta)
-            // Perte de 20% si Temp < 5°C
             let eta = 0.85;
-            if (temp < 5) {
-                eta = eta * 0.80;
-            }
+            if (temp < 5) { eta = eta * 0.80; }
 
-            // 3. Consommation (C)
-            // Baseline calculée sur 80kg, ajustement de 0.12 Wh/km par kg d'écart
             const weightFactor = (weight - 80) * 0.12;
             const c = baseC + weightFactor;
-
-            // 4. Formule : D = (E * eta) / C
             const d = (e * eta) / c;
 
             document.getElementById('dist-result').innerText = d.toFixed(1);
         }
 
-        // Écouteurs d'événements
         ['v-input', 'ah-input', 'weight-input', 'temp-input', 'terrain-input'].forEach(id => {
             document.getElementById(id).addEventListener('input', updateExpertCalc);
         });
 
-        // Calcul initial
         updateExpertCalc();
     </script>
-    <footer>
-        <div style="font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 10px;">ROIA<span>.</span></div>
-        <p style="color: var(--text-dim); margin-bottom: 10px;">Expertise IA pour la Mobilité Électrique</p>
-        <p style="color: var(--text-dim); font-size: 14px;">© 2026 Agence ROIA. Tous droits réservés.</p>
-    </footer>
-
 </body>
 </html>
