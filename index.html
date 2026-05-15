@@ -143,7 +143,86 @@
             </div>
         </div>
     </section>
+<section id="simulateur" style="background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e14 100%);">
+        <h2 class="section-title">Testez notre <span>IA Prédictive</span></h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 50px; font-size: 20px;">
+            Ajustez les paramètres pour simuler une autonomie réelle en conditions réelles.
+        </p>
 
+        <div class="card" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+            
+            <div style="display: flex; flex-direction: column; gap: 25px;">
+                <div>
+                    <label style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600;">
+                        Batterie (Wh) <span id="val-batterie" style="color: var(--blue-electric);">500 Wh</span>
+                    </label>
+                    <input type="range" id="input-batterie" min="300" max="1000" step="50" value="500" style="width: 100%; accent-color: var(--blue-electric);">
+                </div>
+
+                <div>
+                    <label style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600;">
+                        Poids Total (Cycliste + Charge) <span id="val-poids" style="color: var(--blue-electric);">85 kg</span>
+                    </label>
+                    <input type="range" id="input-poids" min="50" max="150" step="5" value="85" style="width: 100%; accent-color: var(--blue-electric);">
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 10px; font-weight: 600;">Type de Terrain & Relief</label>
+                    <select id="input-terrain" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <option value="1.0">Plat (Ville / Bord de Lys)</option>
+                        <option value="1.3">Vallonné (Monts de Flandres)</option>
+                        <option value="1.8">Montagneux / Fort dénivelé</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="text-align: center; background: rgba(0, 119, 200, 0.05); padding: 40px; border-radius: 20px; border: 1px dashed var(--blue-electric);">
+                <h3 style="font-size: 20px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px;">Autonomie Estimée</h3>
+                <div style="font-size: 80px; font-weight: 700; color: #fff; margin: 20px 0;">
+                    <span id="resultat-km">65</span> <span style="font-size: 30px; color: var(--blue-electric);">km</span>
+                </div>
+                <p style="font-size: 14px; color: var(--text-dim); font-style: italic;">
+                    *Calcul basé sur l'algorithme ROIA v1.2 prenant en compte la résistance au roulement et la décharge thermique.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const inputBatterie = document.getElementById('input-batterie');
+        const inputPoids = document.getElementById('input-poids');
+        const inputTerrain = document.getElementById('input-terrain');
+        
+        const displayBatterie = document.getElementById('val-batterie');
+        const displayPoids = document.getElementById('val-poids');
+        const displayResultat = document.getElementById('resultat-km');
+
+        function calculerAutonomie() {
+            const wh = parseInt(inputBatterie.value);
+            const poids = parseInt(inputPoids.value);
+            const terrainMult = parseFloat(inputTerrain.value);
+
+            // Algorithme simplifié : Consommation de base ~10Wh/km pour 75kg sur plat
+            // On ajoute une pénalité de poids et de relief
+            const consoBase = 8; 
+            const penalitePoids = (poids - 70) * 0.05;
+            const consoTotale = (consoBase + penalitePoids) * terrainMult;
+            
+            const autonomie = Math.round(wh / consoTotale);
+            
+            displayResultat.innerText = autonomie;
+            displayBatterie.innerText = wh + " Wh";
+            displayPoids.innerText = poids + " kg";
+        }
+
+        inputBatterie.addEventListener('input', calculerAutonomie);
+        inputPoids.addEventListener('input', calculerAutonomie);
+        inputTerrain.addEventListener('change', calculerAutonomie);
+
+        // Calcul initial au chargement
+        calculerAutonomie();
+    </script>
+    
     <section id="tarifs">
         <h2 class="section-title">Expertise & <span>Engagement</span></h2>
         <table class="pricing-table">
