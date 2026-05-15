@@ -143,7 +143,39 @@
             </div>
         </div>
     </section>
-<section id="expert-calc" style="background: var(--bg-dark); padding: 100px 20px;">
+<section id="tarifs" style="background: var(--bg-dark); padding: 100px 20px;">
+        <h2 class="section-title">Nos <span>Forfaits</span></h2>
+        <div class="card" style="max-width: 900px; margin: 0 auto; overflow: hidden; padding: 0; border: 1px solid #30363d;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; background: #0d1117;">
+                <thead>
+                    <tr style="background: var(--blue-electric); color: white;">
+                        <th style="padding: 20px; font-size: 18px;">Solution</th>
+                        <th style="padding: 20px; font-size: 18px;">Détails</th>
+                        <th style="padding: 20px; font-size: 18px;">Investissement</th>
+                    </tr>
+                </thead>
+                <tbody style="color: white;">
+                    <tr style="border-bottom: 1px solid #30363d;">
+                        <td style="padding: 20px; font-weight: 600;">Audit de Conversion</td>
+                        <td style="padding: 20px; color: var(--text-dim);">Analyse complète du catalogue et de l'UX produit.</td>
+                        <td style="padding: 20px; color: var(--blue-electric); font-weight: 700;">Offert</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #30363d;">
+                        <td style="padding: 20px; font-weight: 600;">Mise en Service</td>
+                        <td style="padding: 20px; color: var(--text-dim);">Configuration de l'IA et intégration du widget sur votre site.</td>
+                        <td style="padding: 20px; font-weight: 700;">1 200 € HT</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 20px; font-weight: 600;">Maintenance IA</td>
+                        <td style="padding: 20px; color: var(--text-dim);">Hébergement cloud, mises à jour et monitoring data.</td>
+                        <td style="padding: 20px; font-weight: 700;">190 € HT / mois</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="expert-calc" style="background: #0a0e14; padding: 100px 20px;">
         <h2 class="section-title">Module <span>Expert</span> ROIA</h2>
         <p style="text-align: center; color: var(--text-dim); margin-bottom: 50px; font-size: 18px;">
             Calcul de l'autonomie réelle basé sur la physique du système.
@@ -206,70 +238,7 @@
         </div>
     </section>
 
-   <section id="expert-calc" style="background: var(--bg-dark); padding: 100px 20px;">
-        <h2 class="section-title">Module <span>Expert</span> ROIA</h2>
-        <p style="text-align: center; color: var(--text-dim); margin-bottom: 50px; font-size: 18px;">
-            Calcul de l'autonomie réelle basé sur la physique du système.
-        </p>
-
-        <div class="card" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <h3 style="font-size: 20px; color: var(--blue-electric); margin-bottom: 5px;">Spécifications Batterie</h3>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div>
-                        <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Tension du système</label>
-                        <input type="number" id="v-input" value="48" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
-                    </div>
-                    <div>
-                        <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Ampérage heure</label>
-                        <input type="number" id="ah-input" value="12.5" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
-                    </div>
-                </div>
-
-                <h3 style="font-size: 20px; color: var(--blue-electric); margin-top: 15px; margin-bottom: 5px;">Facteurs de Terrain</h3>
-                
-                <div style="margin-bottom: 10px;">
-                    <label style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
-                        Poids total <span id="weight-val" style="color: var(--blue-electric);">95 kg</span>
-                    </label>
-                    <input type="range" id="weight-input" min="60" max="180" value="95" style="width: 100%; accent-color: var(--blue-electric);">
-                </div>
-                
-                <div style="margin-bottom: 10px;">
-                    <label style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
-                        Température extérieure <span id="temp-val" style="color: var(--blue-electric);">20 °C</span>
-                    </label>
-                    <input type="range" id="temp-input" min="-5" max="35" value="20" style="width: 100%; accent-color: var(--blue-electric);">
-                </div>
-
-                <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Type de relief</label>
-                <select id="terrain-input" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
-                    <option value="15">Terrain plat</option>
-                    <option value="22">Terrain vallonné</option>
-                    <option value="30">Fort dénivelé</option>
-                </select>
-            </div>
-
-            <div style="background: rgba(0, 119, 200, 0.05); border: 2px solid var(--blue-electric); border-radius: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 30px;">
-                <span style="text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--text-dim);">Distance réelle estimée</span>
-                <div style="font-size: 85px; font-weight: 700; margin: 15px 0; color: #fff;">
-                    <span id="dist-result">34</span> <span style="font-size: 30px; color: var(--blue-electric);">km</span>
-                </div>
-                
-                <div style="background: #161b22; padding: 20px; border-radius: 12px; width: 100%; text-align: left;">
-                    <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 5px;">Énergie disponible : <span id="energy-calc" style="color: white; font-weight: 600;">600</span> Wh</p>
-                    <p style="font-size: 14px; color: var(--text-dim);">Efficacité du système : <span style="color: white; font-weight: 600;">85%</span></p>
-                </div>
-                <p style="font-size: 12px; margin-top: 25px; font-style: italic; color: #586069; line-height: 1.4;">
-                    Algorithme ROIA certifié<br>Analyse prédictive de décharge batterie.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
+    <section id="contact" style="padding: 100px 20px;">
         <h2 class="section-title">Prêt à <span>booster</span> votre boutique ?</h2>
         <p style="text-align: center; margin-bottom: 40px; color: var(--text-dim); font-size: 20px;">
             Recevez un audit gratuit et une démonstration de l'IA ROIA pour votre enseigne.
