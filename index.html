@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROIA | IA pour l'E-commerce & la Mobilité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --card-dark: #161b22;
+            --blue-electric: #0077c8;
+            --blue-navy: #004b87;
+            --text-main: #ffffff;
+            --text-dim: #8b949e;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Lato', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; color: #fff; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+        /* --- NAVIGATION --- */
+        nav { padding: 15px 80px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo img { height: 55px; vertical-align: middle; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a:hover { color: var(--blue-electric); }
+
+        /* --- HERO --- */
+        .hero { height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; background: radial-gradient(circle at center, rgba(0, 119, 200, 0.1) 0%, transparent 70%); }
+        .hero h1 { font-size: 72px; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { color: var(--blue-electric); }
+        .hero p { font-size: 24px; color: var(--text-dim); max-width: 850px; margin-bottom: 40px; }
+        .btn-main { background: var(--blue-electric); color: #fff; padding: 18px 45px; border-radius: 50px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; box-shadow: 0 10px 20px rgba(0, 119, 200, 0.3); }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 119, 200, 0.4); }
+
+        /* --- SECTIONS --- */
+        section { padding: 100px 80px; max-width: 1300px; margin: 0 auto; }
+        .section-title { font-size: 44px; margin-bottom: 60px; text-align: center; }
+        .section-title span { color: var(--blue-electric); }
+        .grid-problem { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .card { background: var(--card-dark); padding: 50px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
+        .card i { font-size: 45px; color: var(--blue-electric); margin-bottom: 25px; }
+        .card h3 { font-size: 30px; margin-bottom: 15px; }
+
+        /* --- STATS --- */
+        .stats-bar { background: var(--blue-navy); padding: 80px; text-align: center; border-radius: 40px; margin: 0 80px; display: flex; flex-direction: column; align-items: center; }
+        .stats-bar h2 { font-size: 140px; color: var(--blue-electric); line-height: 1; }
+        .stats-bar p { font-size: 32px; font-weight: 600; color: #fff; }
+
+        /* --- SOLUTIONS --- */
+        .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .tile { background: var(--card-dark); padding: 40px; border-radius: 24px; text-align: center; border-bottom: 8px solid var(--blue-electric); }
+        .tile i { font-size: 55px; color: var(--blue-electric); margin-bottom: 30px; }
+
+        /* --- PRICING --- */
+        .pricing-table { width: 100%; border-collapse: collapse; margin-top: 40px; background: var(--card-dark); border-radius: 24px; overflow: hidden; }
+        .pricing-table th { background: var(--blue-navy); padding: 30px; text-align: left; font-size: 24px; }
+        .pricing-table td { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 22px; }
+        .price-val { color: var(--blue-electric); font-weight: 700; font-size: 28px; }
+
+        /* --- CONTACT & FOOTER --- */
+        .contact-box { text-align: center; padding: 100px 20px; }
+        .contact-box h2 { font-size: 50px; margin-bottom: 20px; }
+        .email-link { font-size: 36px; color: var(--blue-electric); font-weight: 700; margin-top: 20px; display: block; }
+        footer { padding: 60px 80px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); }
+
+        @media (max-width: 992px) {
+            nav, section, .stats-bar { padding: 40px 20px; margin: 0; }
+            .grid-problem, .solutions-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="ROIA - IA pour l'E-commerce & la Mobilité">
+        </div>
+        <div class="nav-links">
+            <a href="#expertise">Expertise</a>
+            <a href="#solutions">Innovation</a>
+            <a href="#tarifs">Tarifs</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>L'IA au service de la <span>Mobilité</span></h1>
+        <p>Optimisez votre conversion et libérez votre SAV grâce à une intelligence artificielle experte, conçue pour les acteurs de la micro-mobilité.</p>
+        <a href="#contact"><button class="btn-main">Réserver mon Audit</button></a>
+    </header>
+
+    <section id="expertise">
+        <h2 class="section-title">Le défi de la <span>Mobilité Électrique</span></h2>
+        <div class="grid-problem">
+            <div class="card">
+                <i class="fa-solid fa-battery-three-quarters"></i>
+                <h3>Objection Autonomie</h3>
+                <p>70% des abandons de panier sont dus à un doute sur la batterie. Les données constructeurs ne suffisent plus à rassurer vos clients.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-user-gear"></i>
+                <h3>SAV Saturé</h3>
+                <p>Vos vendeurs passent 50% de leur temps à répondre à des questions techniques basiques. Déléguez cette tâche à une IA experte.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <h2>+35%</h2>
+        <p>Augmentation du taux de transformation client.</p>
+    </div>
+
+    <section id="solutions">
+        <h2 class="section-title">Innovation <span>ROIA</span></h2>
+        <div class="solutions-grid">
+            <div class="tile">
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <h3>Calculateur Réel</h3>
+                <p>Prise en compte du poids, du dénivelé local et de la météo pour une promesse client honnête.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h3>Booking Auto</h3>
+                <p>Prise de RDV atelier et essais automatisée, synchronisée directement avec votre agenda.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-earth-europe"></i>
+                <h3>Zone Frontalière</h3>
+                <p>Support natif FR / NL / EN pour capter toute la clientèle entre Comines et Lille.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tarifs">
+        <h2 class="section-title">Expertise & <span>Engagement</span></h2>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Service ROIA</th>
+                    <th>Inclus</th>
+                    <th>Tarif HT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Mise en Service</strong></td>
+                    <td>Audit catalogue, Algorithme, Intégration site.</td>
+                    <td class="price-val">1 200 €</td>
+                </tr>
+                <tr>
+                    <td><strong>Maintenance & Support</strong></td>
+                    <td>Hébergement IA, Mises à jour, Support local.</td>
+                    <td class="price-val">190 € / mois</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 30px; text-align: center; font-style: italic; color: var(--text-dim);">* Le montant de l'audit initial est intégralement déduit de la mise en service.</p>
+    </section>
+
+    <div class="contact-box" id="contact">
+        <h2>Prêt à <span>booster</span> votre boutique ?</h2>
+        <p>Contactez Gauthier Matheys pour une démonstration personnalisée.</p>
+        <a href="mailto:contact@roia.ai" class="email-link">contact@roia.ai</a>
+        <p style="margin-top: 30px;">Comines - Lille | Agence ROIA</p>
+    </div>
+
+    <footer>
+        <p>© 2026 Agence ROIA - Expert Mobilité & IA. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
