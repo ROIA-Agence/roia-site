@@ -143,111 +143,90 @@
             </div>
         </div>
     </section>
-<section id="simulateur" style="background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e14 100%);">
-        <h2 class="section-title">Testez notre <span>IA Prédictive</span></h2>
-        <p style="text-align: center; color: var(--text-dim); margin-bottom: 50px; font-size: 20px;">
-            Ajustez les paramètres pour simuler une autonomie réelle en conditions réelles.
+<section id="expert-calc" style="background: var(--bg-dark); padding: 100px 20px;">
+        <h2 class="section-title">Module <span>Expert</span> ROIA</h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 50px;">
+            Algorithme basé sur la formule de l'autonomie réelle : $D = \frac{(V \times Ah) \times \eta}{C}$
         </p>
 
-        <div class="card" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        <div class="card" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
             
-            <div style="display: flex; flex-direction: column; gap: 25px;">
-                <div>
-                    <label style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600;">
-                        Batterie (Wh) <span id="val-batterie" style="color: var(--blue-electric);">500 Wh</span>
-                    </label>
-                    <input type="range" id="input-batterie" min="300" max="1000" step="50" value="500" style="width: 100%; accent-color: var(--blue-electric);">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <h3 style="font-size: 18px; color: var(--blue-electric);">1. Spécifications Batterie</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <input type="number" id="v-input" placeholder="Tension (V)" value="48" style="padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    <input type="number" id="ah-input" placeholder="Capacité (Ah)" value="12.5" style="padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
                 </div>
 
-                <div>
-                    <label style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600;">
-                        Poids Total (Cycliste + Charge) <span id="val-poids" style="color: var(--blue-electric);">85 kg</span>
-                    </label>
-                    <input type="range" id="input-poids" min="50" max="150" step="5" value="85" style="width: 100%; accent-color: var(--blue-electric);">
-                </div>
+                <h3 style="font-size: 18px; color: var(--blue-electric); margin-top: 10px;">2. Facteurs de Terrain ($C$)</h3>
+                <label style="font-size: 14px;">Poids Total (Pilote + Engin) : <span id="weight-val">95</span> kg</label>
+                <input type="range" id="weight-input" min="60" max="180" value="95" style="width: 100%; accent-color: var(--blue-electric);">
+                
+                <label style="font-size: 14px;">Température Extérieure : <span id="temp-val">20</span>°C</label>
+                <input type="range" id="temp-input" min="-5" max="35" value="20" style="width: 100%; accent-color: var(--blue-electric);">
 
-                <div>
-                    <label style="display: block; margin-bottom: 10px; font-weight: 600;">Type de Terrain & Relief</label>
-                    <select id="input-terrain" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
-                        <option value="1.0">Plat (Ville / Bord de Lys)</option>
-                        <option value="1.3">Vallonné (Monts de Flandres)</option>
-                        <option value="1.8">Montagneux / Fort dénivelé</option>
-                    </select>
-                </div>
+                <select id="terrain-input" style="padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white; margin-top: 10px;">
+                    <option value="15">Terrain Plat (15 Wh/km)</option>
+                    <option value="22">Vallonné / Monts (22 Wh/km)</option>
+                    <option value="30">Fort Dénivelé (30 Wh/km)</option>
+                </select>
             </div>
 
-            <div style="text-align: center; background: rgba(0, 119, 200, 0.05); padding: 40px; border-radius: 20px; border: 1px dashed var(--blue-electric);">
-                <h3 style="font-size: 20px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px;">Autonomie Estimée</h3>
-                <div style="font-size: 80px; font-weight: 700; color: #fff; margin: 20px 0;">
-                    <span id="resultat-km">65</span> <span style="font-size: 30px; color: var(--blue-electric);">km</span>
+            <div style="background: rgba(0, 119, 200, 0.05); border: 2px solid var(--blue-electric); border-radius: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 30px;">
+                <span style="text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--text-dim);">Distance Réelle Estimée</span>
+                <div style="font-size: 72px; font-weight: 700; margin: 10px 0;">
+                    <span id="dist-result">34</span> <span style="font-size: 24px; color: var(--blue-electric);">km</span>
                 </div>
-                <p style="font-size: 14px; color: var(--text-dim); font-style: italic;">
-                    *Calcul basé sur l'algorithme ROIA v1.2 prenant en compte la résistance au roulement et la décharge thermique.
-                </p>
+                <div style="background: #161b22; padding: 15px; border-radius: 12px; width: 100%;">
+                    <p style="font-size: 13px; color: var(--text-dim);">Énergie totale ($E$) : <span id="energy-calc" style="color: white;">600</span> Wh</p>
+                    <p style="font-size: 13px; color: var(--text-dim);">Efficacité ($\eta$) : <span style="color: white;">85%</span></p>
+                </div>
+                <p style="font-size: 11px; margin-top: 20px; font-style: italic; color: #586069;">Modèle de calcul ROIA certifié pour micro-mobilité.</p>
             </div>
         </div>
     </section>
 
     <script>
-        const inputBatterie = document.getElementById('input-batterie');
-        const inputPoids = document.getElementById('input-poids');
-        const inputTerrain = document.getElementById('input-terrain');
-        
-        const displayBatterie = document.getElementById('val-batterie');
-        const displayPoids = document.getElementById('val-poids');
-        const displayResultat = document.getElementById('resultat-km');
+        function updateExpertCalc() {
+            const v = parseFloat(document.getElementById('v-input').value) || 0;
+            const ah = parseFloat(document.getElementById('ah-input').value) || 0;
+            const weight = parseInt(document.getElementById('weight-input').value);
+            const temp = parseInt(document.getElementById('temp-input').value);
+            const baseC = parseInt(document.getElementById('terrain-input').value);
 
-        function calculerAutonomie() {
-            const wh = parseInt(inputBatterie.value);
-            const poids = parseInt(inputPoids.value);
-            const terrainMult = parseFloat(inputTerrain.value);
+            // Mise à jour des labels
+            document.getElementById('weight-val').innerText = weight;
+            document.getElementById('temp-val').innerText = temp;
 
-            // Algorithme simplifié : Consommation de base ~10Wh/km pour 75kg sur plat
-            // On ajoute une pénalité de poids et de relief
-            const consoBase = 8; 
-            const penalitePoids = (poids - 70) * 0.05;
-            const consoTotale = (consoBase + penalitePoids) * terrainMult;
-            
-            const autonomie = Math.round(wh / consoTotale);
-            
-            displayResultat.innerText = autonomie;
-            displayBatterie.innerText = wh + " Wh";
-            displayPoids.innerText = poids + " kg";
+            // 1. Calcul de l'énergie totale (E = V * Ah)
+            const e = v * ah;
+            document.getElementById('energy-calc').innerText = e.toFixed(0);
+
+            // 2. Calcul du coefficient d'efficacité (eta)
+            // La batterie perd de l'efficacité sous 5°C
+            let eta = 0.85;
+            if (temp < 5) {
+                eta = eta * 0.80; // Perte de 20% comme indiqué sur ton image
+            }
+
+            // 3. Calcul de la consommation (C) ajustée au poids
+            // Baseline 15 Wh/km pour 80kg. On ajoute 0.1 Wh/km par kilo supplémentaire.
+            const weightFactor = (weight - 80) * 0.12;
+            const c = baseC + weightFactor;
+
+            // 4. Formule finale : D = (E * eta) / C
+            const d = (e * eta) / c;
+
+            document.getElementById('dist-result').innerText = d.toFixed(1);
         }
 
-        inputBatterie.addEventListener('input', calculerAutonomie);
-        inputPoids.addEventListener('input', calculerAutonomie);
-        inputTerrain.addEventListener('change', calculerAutonomie);
+        // Listeners
+        ['v-input', 'ah-input', 'weight-input', 'temp-input', 'terrain-input'].forEach(id => {
+            document.getElementById(id).addEventListener('input', updateExpertCalc);
+        });
 
-        // Calcul initial au chargement
-        calculerAutonomie();
+        updateExpertCalc();
     </script>
-    
-    <section id="tarifs">
-        <h2 class="section-title">Expertise & <span>Engagement</span></h2>
-        <table class="pricing-table">
-            <thead>
-                <tr>
-                    <th>Service ROIA</th>
-                    <th>Inclus</th>
-                    <th>Tarif HT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Mise en Service</strong></td>
-                    <td>Audit catalogue, Algorithme, Intégration site.</td>
-                    <td class="price-val">1 200 €</td>
-                </tr>
-                <tr>
-                    <td><strong>Maintenance & Support</strong></td>
-                    <td>Hébergement IA, Mises à jour, Support local.</td>
-                    <td class="price-val">190 € / mois</td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="margin-top: 30px; text-align: center; font-style: italic; color: var(--text-dim);">* Le montant de l'audit initial est intégralement déduit de la mise en service.</p>
-    </section>
 
     <section id="contact">
         <h2 class="section-title">Prêt à <span>booster</span> votre boutique ?</h2>
