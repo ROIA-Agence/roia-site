@@ -292,52 +292,58 @@
     </script>
 </section>
 
-    <section id="contact-roia" style="background-color: #0B0E14; color: white; padding: 60px 20px; font-family: 'Arial', sans-serif;">
-    <div style="max-width: 600px; margin: auto; border: 1px solid #00E5FF; padding: 40px; border-radius: 15px; background: rgba(255, 255, 255, 0.02); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        
-        <h2 style="color: #00E5FF; text-align: center; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px;">Démarrer l'audit <span style="color: white;">ROIA.</span></h2>
+    <section id="contact" style="padding: 100px 20px;">
+        <h2 class="section-title">Prêt à <span>booster</span> votre boutique ?</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: var(--text-dim); font-size: 20px;">
+            Recevez un audit gratuit et une démonstration de l'IA ROIA pour votre enseigne.
+        </p>
 
-        <form action="https://formspree.io/f/mzdonbkg" method="POST" style="display: grid; gap: 20px;">
-            
-            <div>
-                <label style="display: block; margin-bottom: 8px; font-size: 0.9em; color: #00E5FF; font-weight: bold;">NOM COMPLET</label>
-                <input type="text" name="name" required placeholder="Votre nom et prénom" 
-                    style="width: 100%; background: #1A1F26; color: white; border: 1px solid #333; padding: 12px; border-radius: 5px; outline: none; transition: 0.3s;"
-                    onfocus="this.style.border='1px solid #00E5FF'" onblur="this.style.border='1px solid #333'">
-            </div>
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <form action="https://formspree.io/f/mzdonbkg" method="POST" style="display: grid; gap: 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nom du Gérant</label>
+                        <input type="text" name="nom_complet" placeholder="Ex: Jean Dupont" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nom de l'enseigne</label>
+                        <input type="text" name="entreprise" placeholder="Ex: Mobilité Performance" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                </div>
 
-            <div>
-                <label style="display: block; margin-bottom: 8px; font-size: 0.9em; color: #00E5FF; font-weight: bold;">EMAIL PROFESSIONNEL</label>
-                <input type="email" name="_replyto" required placeholder="nom@boutique.be" 
-                    style="width: 100%; background: #1A1F26; color: white; border: 1px solid #333; padding: 12px; border-radius: 5px; outline: none; transition: 0.3s;"
-                    onfocus="this.style.border='1px solid #00E5FF'" onblur="this.style.border='1px solid #333'">
-            </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Email Professionnel</label>
+                        <input type="email" name="email" placeholder="contact@boutique.com" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Ville / Pays</label>
+                        <input type="text" name="localisation" placeholder="Ex: Lille, Bruxelles, Paris..." required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                </div>
 
-            <div>
-                <label style="display: block; margin-bottom: 8px; font-size: 0.9em; color: #00E5FF; font-weight: bold;">NOMBRE DE MODÈLES EN STOCK (Vélos/Trottinettes)</label>
-                <input type="number" name="stock_count" required placeholder="Ex: 25" 
-                    style="width: 100%; background: #1A1F26; color: white; border: 1px solid #333; padding: 12px; border-radius: 5px; outline: none; transition: 0.3s;"
-                    onfocus="this.style.border='1px solid #00E5FF'" onblur="this.style.border='1px solid #333'">
-            </div>
+                <div>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Taille du catalogue</label>
+                    <select name="taille_stock" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <option value="1-10">1 à 10 modèles</option>
+                        <option value="10-30">10 à 30 modèles</option>
+                        <option value="30-50">30 à 50 modèles</option>
+                        <option value="50+">Plus de 50 modèles</option>
+                    </select>
+                </div>
 
-            <div>
-                <label style="display: block; margin-bottom: 8px; font-size: 0.9em; color: #00E5FF; font-weight: bold;">VOTRE MESSAGE</label>
-                <textarea name="message" rows="4" required placeholder="Précisez votre besoin..." 
-                    style="width: 100%; background: #1A1F26; color: white; border: 1px solid #333; padding: 12px; border-radius: 5px; outline: none; transition: 0.3s; resize: vertical;"
-                    onfocus="this.style.border='1px solid #00E5FF'" onblur="this.style.border='1px solid #333'"></textarea>
-            </div>
+                <div>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Votre projet</label>
+                    <textarea name="message" rows="4" placeholder="Décrivez votre besoin..." style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white; resize: none;"></textarea>
+                </div>
 
-            <button type="submit" 
-                style="background: #00E5FF; color: #0B0E14; border: none; padding: 15px; border-radius: 5px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; margin-top: 10px;"
-                onmouseover="this.style.background='#FFFFFF'; this.style.boxShadow='0 0 15px #00E5FF'" 
-                onmouseout="this.style.background='#00E5FF'; this.style.boxShadow='none'">
-                Envoyer ma demande
-            </button>
+                <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">
+                    Envoyer ma demande d'audit
+                </button>
+            </form>
+        </div>
+    </section>
 
-        </form>
-    </div>
-</section>
-    
     <footer>
         <div style="font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 10px;">ROIA<span>.</span></div>
         <p style="color: var(--text-dim); margin-bottom: 10px;">Expertise IA pour la Mobilité Électrique</p>
