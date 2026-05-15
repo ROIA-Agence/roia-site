@@ -175,68 +175,96 @@
         </div>
     </section>
 
-    <section id="expert-calc" style="background: #0a0e14; padding: 100px 20px;">
-        <h2 class="section-title">Module <span>Expert</span> ROIA</h2>
-        <p style="text-align: center; color: var(--text-dim); margin-bottom: 50px; font-size: 18px;">
-            Calcul de l'autonomie réelle basé sur la physique du système.
-        </p>
+   <section id="simulator" style="background-color: #0B0E14; color: white; padding: 40px; font-family: 'Arial', sans-serif; border-radius: 15px; max-width: 600px; margin: auto; border: 1px solid #00E5FF;">
+    <h2 style="color: #00E5FF; text-align: center;">Simulateur d'Autonomie <span style="color: white;">ROIA.</span></h2>
+    
+    <div style="margin-bottom: 25px;">
+        <label>Température Extérieure : <span id="tempVal" style="color: #00E5FF; font-weight: bold;">20</span>°C</label>
+        <input type="range" id="tempSlider" min="-10" max="40" value="20" step="1" style="width: 100%; cursor: pointer; accent-color: #00E5FF;">
+        <p id="coldWarning" style="color: #FFA500; font-size: 0.8em; margin-top: 5px; display: none;">❄️ Température basse : Efficacité batterie réduite de 20%</p>
+    </div>
 
-        <div class="card" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <h3 style="font-size: 20px; color: var(--blue-electric); margin-bottom: 5px;">Spécifications Batterie</h3>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div>
-                        <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Tension du système</label>
-                        <input type="number" id="v-input" value="48" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
-                    </div>
-                    <div>
-                        <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Ampérage heure</label>
-                        <input type="number" id="ah-input" value="12.5" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
-                    </div>
-                </div>
+    <div style="margin-bottom: 25px;">
+        <label>Poids total (Utilisateur + Vélo) : <span id="weightVal" style="color: #00E5FF; font-weight: bold;">99</span> kg</label>
+        <input type="range" id="weightSlider" min="50" max="150" value="99" step="1" style="width: 100%; cursor: pointer; accent-color: #00E5FF;">
+    </div>
 
-                <h3 style="font-size: 20px; color: var(--blue-electric); margin-top: 15px; margin-bottom: 5px;">Facteurs de Terrain</h3>
-                
-                <div style="margin-bottom: 10px;">
-                    <label style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
-                        Poids total <span id="weight-val" style="color: var(--blue-electric);">95 kg</span>
-                    </label>
-                    <input type="range" id="weight-input" min="60" max="180" value="95" style="width: 100%; accent-color: var(--blue-electric);">
-                </div>
-                
-                <div style="margin-bottom: 10px;">
-                    <label style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
-                        Température extérieure <span id="temp-val" style="color: var(--blue-electric);">20 °C</span>
-                    </label>
-                    <input type="range" id="temp-input" min="-5" max="35" value="20" style="width: 100%; accent-color: var(--blue-electric);">
-                </div>
+    <div style="margin-bottom: 25px;">
+        <label>Type de relief :</label>
+        <select id="reliefSelect" style="width: 100%; background: #1A1F26; color: white; border: 1px solid #00E5FF; padding: 10px; border-radius: 5px; cursor: pointer;">
+            <option value="15">Plat (Wervik/Comines)</option>
+            <option value="22">Vallonné</option>
+            <option value="30">Fort dénivelé / Montagne</option>
+        </select>
+    </div>
 
-                <label style="display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dim);">Type de relief</label>
-                <select id="terrain-input" style="width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; color: white;">
-                    <option value="15">Terrain plat</option>
-                    <option value="22">Terrain vallonné</option>
-                    <option value="30">Fort dénivelé</option>
-                </select>
-            </div>
+    <hr style="border: 0.5px solid #333; margin: 30px 0;">
 
-            <div style="background: rgba(0, 119, 200, 0.05); border: 2px solid var(--blue-electric); border-radius: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 30px;">
-                <span style="text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--text-dim);">Distance réelle estimée</span>
-                <div style="font-size: 85px; font-weight: 700; margin: 15px 0; color: #fff;">
-                    <span id="dist-result">34</span> <span style="font-size: 30px; color: var(--blue-electric);">km</span>
-                </div>
-                
-                <div style="background: #161b22; padding: 20px; border-radius: 12px; width: 100%; text-align: left;">
-                    <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 5px;">Énergie disponible : <span id="energy-calc" style="color: white; font-weight: 600;">600</span> Wh</p>
-                    <p style="font-size: 14px; color: var(--text-dim);">Efficacité du système : <span style="color: white; font-weight: 600;">85%</span></p>
-                </div>
-                <p style="font-size: 12px; margin-top: 25px; font-style: italic; color: #586069; line-height: 1.4;">
-                    Algorithme ROIA certifié<br>Analyse prédictive de décharge batterie.
-                </p>
-            </div>
-        </div>
-    </section>
+    <div style="text-align: center;">
+        <p style="font-size: 1.2em; margin-bottom: 10px;">Autonomie estimée :</p>
+        <div id="rangeResult" style="font-size: 3em; font-weight: bold; color: #00E5FF;">-- km</div>
+    </div>
+
+    <script>
+        // --- CONFIGURATION AUGMENT ALTURO ---
+        const VOLTAGE = 50.4;
+        const AMPERE_HOURS = 9.6;
+        const ENERGY = VOLTAGE * AMPERE_HOURS; // ~484 Wh
+
+        // Éléments DOM
+        const tempSlider = document.getElementById('tempSlider');
+        const weightSlider = document.getElementById('weightSlider');
+        const reliefSelect = document.getElementById('reliefSelect');
+        const rangeResult = document.getElementById('rangeResult');
+        
+        const tempValDisplay = document.getElementById('tempVal');
+        const weightValDisplay = document.getElementById('weightVal');
+        const coldWarning = document.getElementById('coldWarning');
+
+        function calculateROIA() {
+            // 1. Récupération des valeurs
+            const temp = parseFloat(tempSlider.value);
+            const weight = parseFloat(weightSlider.value);
+            const baseCons = parseFloat(reliefSelect.value);
+
+            // 2. Mise à jour de l'affichage texte
+            tempValDisplay.innerText = temp;
+            weightValDisplay.innerText = weight;
+
+            // 3. Logique Thermique (La correction demandée)
+            let efficiency = 0.85;
+            if (temp < 5) {
+                efficiency = 0.85 * 0.80; // Chute de 20%
+                coldWarning.style.display = "block";
+            } else {
+                coldWarning.style.display = "none";
+            }
+
+            // 4. Calcul de la Consommation (C) avec pénalité de poids
+            // Base 80kg. 0.12 Wh/km par kg supplémentaire
+            let weightPenalty = 0;
+            if (weight > 80) {
+                weightPenalty = (weight - 80) * 0.12;
+            }
+            let totalCons = baseCons + weightPenalty;
+
+            // 5. Formule Physique ROIA : D = (E * η) / C
+            let distance = (ENERGY * efficiency) / totalCons;
+
+            // 6. Affichage du résultat
+            rangeResult.innerText = distance.toFixed(1) + " km";
+        }
+
+        // --- ÉCOUTEURS D'ÉVÉNEMENTS (Le coeur de la correction) ---
+        // On écoute l'événement 'input' pour une réaction en temps réel
+        tempSlider.addEventListener('input', calculateROIA);
+        weightSlider.addEventListener('input', calculateROIA);
+        reliefSelect.addEventListener('change', calculateROIA);
+
+        // Calcul initial au chargement de la page
+        calculateROIA();
+    </script>
+</section>
 
     <section id="contact" style="padding: 100px 20px;">
         <h2 class="section-title">Prêt à <span>booster</span> votre boutique ?</h2>
