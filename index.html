@@ -177,43 +177,43 @@
         </p>
 
         <div class="card" style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <form action="#" method="POST" style="display: grid; gap: 20px;">
+            <form action="https://formspree.io/f/mzdonbkg" method="POST" style="display: grid; gap: 20px;">
                 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div>
                         <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nom du Gérant</label>
-                        <input type="text" placeholder="Ex: Jean Dupont" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <input type="text" name="nom_complet" placeholder="Ex: Jean Dupont" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
                     </div>
                     <div>
                         <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nom de l'enseigne</label>
-                        <input type="text" placeholder="Ex: Mobilité 59" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <input type="text" name="entreprise" placeholder="Ex: Mobilité Performance" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
                     </div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div>
                         <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Email Professionnel</label>
-                        <input type="email" placeholder="contact@boutique.com" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <input type="email" name="email" placeholder="contact@boutique.com" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
                     </div>
                     <div>
-                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Ville / Localisation</label>
-                        <input type="text" placeholder="Ex: Comines, Lille, Tournai..." style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Ville / Pays</label>
+                        <input type="text" name="localisation" placeholder="Ex: Lille, Bruxelles, Paris..." required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
                     </div>
                 </div>
 
                 <div>
-                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nombre de modèles en stock</label>
-                    <select style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
-                        <option>1 à 10 modèles</option>
-                        <option>10 à 30 modèles</option>
-                        <option>30 à 50 modèles</option>
-                        <option>Plus de 50 modèles</option>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Taille du catalogue (Nombre de modèles)</label>
+                    <select name="taille_stock" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                        <option value="1-10">1 à 10 modèles</option>
+                        <option value="10-30">10 à 30 modèles</option>
+                        <option value="30-50">30 à 50 modèles</option>
+                        <option value="50+">Plus de 50 modèles</option>
                     </select>
                 </div>
 
                 <div>
-                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Votre projet / questions</label>
-                    <textarea rows="4" placeholder="Décrivez vos besoins (intégration site web, calcul d'autonomie...)" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white; resize: none;"></textarea>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Votre projet</label>
+                    <textarea name="message" rows="4" placeholder="Décrivez brièvement votre besoin (ex: Calcul d'autonomie, automatisation SAV...)" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white; resize: none;"></textarea>
                 </div>
 
                 <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px;">
@@ -223,7 +223,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 60px;">
-            <p style="color: var(--text-dim);">Ou contactez-moi directement :</p>
+            <p style="color: var(--text-dim);">Expertise IA pour la Mobilité | Agence ROIA</p>
             <a href="mailto:contact@roia.ai" style="font-size: 24px; color: var(--blue-electric); font-weight: 700;">contact@roia.ai</a>
         </div>
     </section>
