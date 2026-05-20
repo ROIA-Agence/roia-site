@@ -43,7 +43,7 @@
         /* --- SECTIONS --- */
         section { padding: 90px 80px; max-width: 1300px; margin: 0 auto; }
         .section-title { font-size: 40px; margin-bottom: 15px; text-align: center; }
-        .section-subtitle { text-align: center; color: var(--text-dim); font-size: 1.1rem; max-width: 700px; margin: 0 auto 60px auto; }
+        .section-subtitle { text-align: center; color: var(--text-dim); font-size: 1.1rem; max-width: 700px; margin: 0 auto 60px auto; line-height: 1.6; }
         .section-title span { color: var(--blue-electric); }
         
         .grid-problem { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -70,7 +70,7 @@
         .price-card:hover { border-color: rgba(0, 210, 255, 0.3); }
         .price-card.featured { border: 2px solid var(--blue-electric); position: relative; box-shadow: 0 10px 25px -5px rgba(0, 210, 255, 0.15); }
         .badge-featured { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background-color: var(--blue-electric); color: #0b0f19; padding: 4px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-        .price-card ul { list-style: none; padding: 0; margin: 20px 0; color: #e2e8f0; font-size: 0.95rem; line-height: 2.1; }
+        .price-card ul { list-style: none; padding: 0; margin: 20px 0; color: #e2e8f0; font-size: 0.95rem; line-height: 2.1; text-align: left; }
         .btn-outline { display: block; text-align: center; background-color: transparent; border: 2px solid var(--blue-electric); color: var(--blue-electric); padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600; transition: var(--transition); }
         .btn-outline:hover { background-color: var(--blue-electric); color: #0b0f19; }
         .btn-filled { display: block; text-align: center; background-color: var(--blue-electric); color: #0b0f19; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600; transition: var(--transition); }
@@ -78,7 +78,7 @@
 
         /* --- SIMULATEUR --- */
         .sim-section { background-color: var(--bg-dark); padding: 90px 20px; }
-        .sim-box { background-color: var(--card-dark); color: white; padding: 40px; border-radius: 24px; max-width: 700px; margin: auto; border: 2px solid var(--blue-electric); box-shadow: 0 0 25px rgba(0, 229, 255, 0.1); }
+        .sim-box { background-color: var(--card-dark); color: white; padding: 40px; border-radius: 24px; max-width: 700px; margin: auto; border: 2px solid var(--blue-electric); box-shadow: 0 0 25px rgba(0, 229, 255, 0.1); text-align: left; }
         .sim-box label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; }
         .sim-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; }
         .sim-field { width: 100%; background: #1a1f26; color: var(--blue-electric); border: 1px solid #30363d; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 1rem; }
@@ -143,3 +143,281 @@
     <section id="solutions">
         <h2 class="section-title">Automations <span>Sur-Mesure</span></h2>
         <p class="section-subtitle">Découvrez comment nous connectons l'intelligence artificielle à votre réalité terrain au quotidien.</p>
+        <div class="solutions-grid">
+            <div class="tile">
+                <i class="fa-solid fa-robot"></i>
+                <h3>Support & Qualification</h3>
+                <p>Des agents IA (Voiceflow) connectés à votre site, WhatsApp ou Messenger pour répondre instantanément et trier les demandes complexes.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h3>Booking Client Auto</h3>
+                <p>Prise de rendez-vous, planification d'essais en magasin ou demandes de devis synchronisées automatiquement à vos agendas d'équipe.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-database"></i>
+                <h3>Flux Connectés (Admin)</h3>
+                <p>Interconnexion de vos outils via des scénarios automatisés (Formulaire → Synchronisation CRM → Brouillon de devis instantané).</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="offres" class="offers-container">
+        <h2 class="section-title" style="text-align: center;">Nos Offres & <span>Packs</span></h2>
+        <p class="section-subtitle">Des grilles claires et adaptées à la taille de votre structure, sans coûts cachés.</p>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Audit IA Express</h3>
+                    <p style="font-size: 0.9rem; color: var(--blue-electric); text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">Analyse en 5 jours</p>
+                    <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 25px;">Idéal pour les structures qui veulent chiffrer leurs pertes de temps et savoir exactement par où commencer.</p>
+                    <hr style="border: 0; border-top: 1px solid #1f2937; margin-bottom: 25px;">
+                    <ul>
+                        <li>✔️ 1 entretien approfondi (60-90 min)</li>
+                        <li>✔️ Cartographie claire de vos process clés</li>
+                        <li>✔️ 3 à 5 cas d'usage IA à fort impact identifiés</li>
+                        <li>✔️ Mini feuille de route actionnable sur 3 mois</li>
+                        <li>✔️ Rapport PDF complet + 30 min de débrief</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="margin-top: 30px; margin-bottom: 20px; text-align: left;">
+                        <span style="font-size: 2rem; font-weight: bold;">350 €</span>
+                        <span style="color: var(--text-dim); font-size: 0.9rem;"> HT / Offre de lancement</span>
+                    </div>
+                    <a href="#contact" class="btn-outline">Réserver mon audit</a>
+                </div>
+            </div>
+
+            <div class="price-card featured">
+                <div class="badge-featured">Le plus populaire</div>
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Setup Automation Focus</h3>
+                    <p style="font-size: 0.9rem; color: var(--blue-electric); text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">Déploiement Opérationnel</p>
+                    <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 25px;">Conception et intégration complète d'un premier système IA ou agent conversationnel autonome connecté.</p>
+                    <hr style="border: 0; border-top: 1px solid #1f2937; margin-bottom: 25px;">
+                    <ul>
+                        <li>✔️ Développement de votre agent IA ou flux connecté</li>
+                        <li>✔️ Intégration site web, CRM et canaux de messagerie</li>
+                        <li>✔️ Phase rigoureuse de crash-tests et ajustements</li>
+                        <li>✔️ 1 session de formation courte pour vos équipes</li>
+                        <li>✔️ Documentation d'utilisation simplifiée</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="margin-top: 30px; margin-bottom: 20px; text-align: left;">
+                        <span style="color: var(--text-dim); font-size: 0.95rem; font-weight: bold;">TPE : 1500€ - 2000€ HT</span><br>
+                        <span style="color: var(--text-dim); font-size: 0.95rem; font-weight: bold;">PME : Jusqu'à 2500€ HT</span>
+                    </div>
+                    <a href="#contact" class="btn-filled">Lancer mon projet</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Suivi Mensuel</h3>
+                    <p style="font-size: 0.9rem; color: var(--blue-electric); text-transform: uppercase; font-weight: 600; margin-bottom: 20px;">Sérénité & Performance</p>
+                    <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 25px;">Pour garantir que vos systèmes restent performants, alignés à votre terrain et mis à jour face aux nouveautés.</p>
+                    <hr style="border: 0; border-top: 1px solid #1f2937; margin-bottom: 25px;">
+                    <ul>
+                        <li>✔️ Analyse continue des conversations et logs d'erreurs</li>
+                        <li>✔️ Optimisation constante de vos prompts et règles</li>
+                        <li>✔️ 1 réunion mensuelle de pilotage (60 min)</li>
+                        <li>✔️ 1 amélioration continue ou micro-workflow / mois</li>
+                        <li>✔️ Support technique prioritaire sous 24h</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="margin-top: 30px; margin-bottom: 20px; text-align: left;">
+                        <span style="color: var(--text-dim); font-size: 0.95rem; font-weight: bold;">TPE : 200€ - 300€ HT / mois</span><br>
+                        <span style="color: var(--text-dim); font-size: 0.95rem; font-weight: bold;">PME : 400€ - 600€ HT / mois</span>
+                    </div>
+                    <a href="#contact" class="btn-outline">Souscrire au suivi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="simulator" class="sim-section">
+        <div class="sim-box">
+            <h2 style="color: var(--blue-electric); text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Simulateur d'Autonomie <span style="color: white;">ROIA</span></h2>
+            
+            <div class="sim-input-grid">
+                <div>
+                    <label>Tension Système (V)</label>
+                    <input type="number" id="voltInput" value="50.4" step="0.1" class="sim-field">
+                </div>
+                <div>
+                    <label>Capacité Batterie (Ah)</label>
+                    <input type="number" id="ahInput" value="9.6" step="0.1" class="sim-field">
+                </div>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label>Mode de conduite : <span id="modeVal" style="color: var(--blue-electric); font-weight: bold;">Normal</span></label>
+                <input type="range" id="modeSlider" min="1" max="3" value="2" step="1" class="sim-slider">
+                <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666;">
+                    <span>Eco</span>
+                    <span>Normal</span>
+                    <span>Sport</span>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label>Température Extérieure : <span id="tempVal" style="color: var(--blue-electric); font-weight: bold;">20</span>°C</label>
+                <input type="range" id="tempSlider" min="-10" max="40" value="20" step="1" class="sim-slider">
+                <p id="coldAlert" style="color: #FFA500; font-size: 0.85em; margin-top: 5px; display: none; font-style: italic;">❄️ Efficacité réduite de 20% sous 5°C (pertes thermiques)</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label>Poids Charge Pilote + Bagages : <span id="weightVal" style="color: var(--blue-electric); font-weight: bold;">80</span> kg</label>
+                <input type="range" id="weightSlider" min="50" max="150" value="80" step="1" class="sim-slider">
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label>Relief du Parcours (Topographie locale) :</label>
+                <select id="reliefSelect" class="sim-select">
+                    <option value="15">Plat (Consommation standard)</option>
+                    <option value="22">Vallonné (Relief modéré)</option>
+                    <option value="30">Fort dénivelé (Pentes importantes)</option>
+                </select>
+            </div>
+
+            <div class="sim-result-box">
+                <p style="font-size: 1.1em; margin-bottom: 5px; color: #e2e8f0;">Autonomie Réelle Estimée :</p>
+                <div id="rangeResult" style="font-size: 3.5em; font-weight: bold; color: var(--blue-electric); text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);">-- km</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">Capacité Énergétique : <span id="energyVal">--</span> Wh</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact">
+        <h2 class="section-title">Prêt à sécuriser vos <span>Gains de Temps</span> ?</h2>
+        <p class="section-subtitle">Discutons de vos flux de travail durant un appel stratégique de 20 minutes sans engagement.</p>
+
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <form action="https://formspree.io/f/meedeybq" method="POST" style="display: grid; gap: 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Votre Nom</label>
+                        <input type="text" name="nom_complet" placeholder="Ex: Jean Dupont" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Nom de l'Entreprise</label>
+                        <input type="text" name="entreprise" placeholder="Ex: Atelier Écomobilité" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Email Professionnel</label>
+                        <input type="email" name="email" placeholder="contact@votreentreprise.com" required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Localisation (Ville)</label>
+                        <input type="text" name="localisation" placeholder="Ex: Comines, Lille, Tournai..." required style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white;">
+                    </div>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Taille de l'organisation</label>
+                    <select name="taille_entreprise" style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white; cursor: pointer;">
+                        <option value="independant">Auto-entrepreneur / Indépendant</option>
+                        <option value="tpe">TPE (1 à 9 salariés)</option>
+                        <option value="pme">PME (10 à 49 salariés)</option>
+                        <option value="etp">50 salariés et plus</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 8px; color: var(--blue-electric); font-weight: 600;">Décrivez vos tâches les plus chronophages</label>
+                    <textarea name="message" rows="4" placeholder="Ex: Traitement manuel de nos devis, questions récurrentes clients sur WhatsApp, saisie double dans nos fichiers..." style="width: 100%; padding: 12px; background: var(--bg-dark); border: 1px solid #30363d; border-radius: 8px; color: white; resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px; border-radius: 8px;">
+                    Demander mon appel de cadrage (Gratuit)
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="background-color: #0b0f19; padding: 40px 20px; text-align: center; border-top: 1px solid #1a1f26; margin-top: 60px;">
+        <p style="color: var(--text-dim); font-size: 0.9rem;">
+            &copy; 2026 Agence ROIA. Tous droits réservés.<br><br>
+            <a href="cgs-roia.pdf" target="_blank" style="color: var(--blue-electric); text-decoration: none; font-weight: bold; border: 1px solid var(--blue-electric); padding: 8px 15px; border-radius: 5px; transition: var(--transition);">
+                Consulter les CGS (PDF)
+            </a>
+        </p>
+    </footer>
+
+    <script>
+        const vIn = document.getElementById('voltInput');
+        const ahIn = document.getElementById('ahInput');
+        const mSld = document.getElementById('modeSlider');
+        const tSld = document.getElementById('tempSlider');
+        const wSld = document.getElementById('weightSlider');
+        const rSel = document.getElementById('reliefSelect');
+        
+        const res = document.getElementById('rangeResult');
+        const enVal = document.getElementById('energyVal');
+        const mDisp = document.getElementById('modeVal');
+        const tDisp = document.getElementById('tempVal');
+        const wDisp = document.getElementById('weightVal');
+        const cAlert = document.getElementById('coldAlert');
+
+        function updateROIA() {
+            const V = parseFloat(vIn.value) || 0;
+            const Ah = parseFloat(ahIn.value) || 0;
+            const M = parseInt(mSld.value);
+            const T = parseFloat(tSld.value);
+            const W = parseFloat(wSld.value);
+            const R = parseFloat(rSel.value);
+
+            tDisp.innerText = T;
+            wDisp.innerText = W;
+
+            // Logique du Mode de conduite
+            let modeLabel = "Normal";
+            let modeMult = 1.0;
+            if (M === 1) { modeLabel = "Eco"; modeMult = 0.75; }
+            if (M === 3) { modeLabel = "Sport"; modeMult = 1.4; }
+            mDisp.innerText = modeLabel;
+
+            // Calcul Énergie totale (Wh)
+            const E = V * Ah;
+            enVal.innerText = E.toFixed(0);
+
+            // Efficacité globale (pertes thermiques)
+            let eta = 0.85;
+            if (T < 5) {
+                eta = 0.68; // Réduction d'efficacité à cause du froid
+                cAlert.style.display = "block";
+            } else {
+                cAlert.style.display = "none";
+            }
+
+            // Calcul de la pénalité de poids (base 80kg)
+            let wDiff = W - 80;
+            let wPenalty = wDiff * 0.12;
+            
+            // Consommation par km ajustée selon relief, mode et poids
+            let C = R * modeMult + wPenalty;
+            if (C < 5) C = 5; 
+
+            // Formule physique de distance d'autonomie réelle
+            let D = (E * eta) / C;
+            if (D < 0 || isNaN(D) || !isFinite(D)) D = 0;
+
+            res.innerText = D.toFixed(1) + " km";
+        }
+
+        // Écouteurs d'événements
+        [vIn, ahIn, mSld, tSld, wSld].forEach(el => el.addEventListener('input', updateROIA));
+        rSel.addEventListener('change', updateROIA);
+
+        // Lancement initial du calcul
+        updateROIA();
+    </script>
+</body>
+</html>
