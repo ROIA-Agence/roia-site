@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROIA | Audits & Automations IA pour TPE & PME</title>
+    <meta name="description" content="ROIA aide les TPE et PME à automatiser leurs tâches chronophages grâce à l'Intelligence Artificielle. Gagnez jusqu'à 20h par semaine avec nos agents conversationnels et workflows sur-mesure.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -20,6 +21,9 @@
             --text-dim: #94a3b8;
             --transition: all 0.3s ease;
         }
+        html {
+    scroll-behavior: smooth;
+}
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Lato', sans-serif; line-height: 1.6; overflow-x: hidden; }
@@ -243,6 +247,10 @@
         <div class="sim-box">
             <h2 style="color: var(--blue-electric); text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Simulateur d'Autonomie <span style="color: white;">ROIA</span></h2>
             
+            <p style="color: var(--text-dim); text-align: center; font-size: 0.95rem; margin-bottom: 35px; line-height: 1.5;">
+                <strong style="color: white;">Cas d'usage :</strong> Voici un exemple de module prédictif développé pour un e-commerce dans le secteur de la micro-mobilité électrique. Il illustre comment nous transformons des variables physiques complexes en un outil interactif et d'aide à la vente.
+            </p>
+            
             <div class="sim-input-grid">
                 <div>
                     <label>Tension Système (V)</label>
@@ -290,11 +298,9 @@
                 <p style="font-size: 0.85em; color: #666; margin-top: 10px;">Capacité Énergétique : <span id="energyVal">--</span> Wh</p>
             </div>
 
-            <!-- Nouvelle mention ajoutée ici -->
             <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-dim); text-align: center; font-style: italic; line-height: 1.4;">
                 * À noter : Ce simulateur est intégré à notre agent conversationnel à des fins de démonstration. Il sert uniquement à illustrer le concept et ne représente pas l'algorithme définitif utilisé dans nos produits.
             </p>
-
         </div>
     </div>
 
