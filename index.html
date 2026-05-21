@@ -53,7 +53,7 @@
                         Solutions IA & Automatisations Régionales
                     </span>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-                        Gagnez jusqu'à <span class="text-gradient">20 heures par semaine</span> en automatisant votre PME
+                        Gagnez jusqu'à <span class="text-gradient">20 hours par semaine</span> en automatisant votre PME
                     </h1>
                     <p class="text-lg sm:text-xl text-slate-400 mb-10 max-w-2xl mx-auto font-normal leading-relaxed">
                         De la relance automatique de vos devis à la gestion intelligente de vos messages WhatsApp, ROIA audite vos flux de travail et déploie des modules IA sur-mesure pour éliminer vos tâches répétitives.
@@ -324,16 +324,10 @@
                 return;
             }
 
-            // Capacité brute en Watt-Heures (Wh)
             const totalWh = V * Ah;
-
-            // Consommation de base théorique par km (Wh/km) pour un utilisateur de 75kg sur le plat à 20°C
             let consumptionBase = 9.5; 
-
-            // Facteur Poids (+ ou - de Wh consommés selon la masse globale)
             const weightFactor = 1 + ((kg - 75) * 0.007);
 
-            // Facteur Température (Moins de rendement chimique en dessous de 15°C)
             let tempFactor = 1;
             if (temp < 15) {
                 tempFactor = 1 + ((15 - temp) * 0.008); 
@@ -341,24 +335,17 @@
                 tempFactor = 1 + ((temp - 30) * 0.003); 
             }
 
-            // Facteur Terrain / Dénivelé
             let terrainFactor = 1;
             if (terrain === 'mixed') terrainFactor = 1.25;
             if (terrain === 'hilly') terrainFactor = 1.65;
 
-            // Consommation finale ajustée
             const finalConsumption = consumptionBase * weightFactor * tempFactor * terrainFactor;
-
-            // Calcul de l'autonomie finale avec marge de sécurité / efficacité moteur de 85%
             let km = (totalWh * 0.85) / finalConsumption;
 
-            // Sécurité d'affichage
             if(km < 0) km = 0;
-
             resultKm.innerText = Math.round(km);
         }
 
-        // Écouteurs d'événements pour mettre à jour l'affichage des sliders et recalculer
         weightInput.addEventListener('input', (e) => {
             weightVal.innerText = e.target.value + ' kg';
             calculateAutonomy();
@@ -373,26 +360,22 @@
         amperageInput.addEventListener('input', calculateAutonomy);
         terrainSelect.addEventListener('change', calculateAutonomy);
 
-        // Lancement d'un premier calcul à l'affichage de la page
         calculateAutonomy();
     </script>
 
-<script type="text/javascript">
+    <script type="text/javascript">
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             window.voiceflow.chat.load({
-              verify: { 
-                projectID: '6e0f5959f29ca778157c6278'
-              },
+              verify: { projectID: '6e0f5959f29ca778157c6278' },
               url: 'https://general-runtime.voiceflow.com',
               versionID: 'production'
             });
           }
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
       })(document, 'script');
 
-      // Fonction sur-mesure pour forcer l'ouverture du Widget IA
       function openVfBot() {
         if (window.voiceflow && window.voiceflow.chat) {
             window.voiceflow.chat.open();
