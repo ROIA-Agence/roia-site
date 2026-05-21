@@ -33,9 +33,9 @@
                 <a href="#a-propos" class="hover:text-sky-400 transition-colors">À Propos</a>
             </nav>
             <div>
-                <a href="#contact" class="bg-slate-900 hover:bg-slate-800 text-slate-200 px-5 py-2.5 rounded-xl border border-slate-700/60 font-medium text-sm transition-all shadow-sm">
+                <button onclick="openVfBot()" class="bg-slate-900 hover:bg-slate-800 text-slate-200 px-5 py-2.5 rounded-xl border border-slate-700/60 font-medium text-sm transition-all shadow-sm cursor-pointer">
                     Contact direct
-                </a>
+                </button>
             </div>
         </div>
     </header>
@@ -243,6 +243,7 @@
 
         <section id="a-propos" class="py-20 lg:py-28 border-b border-slate-900 bg-slate-900/20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <img src="gauthier.png" alt="Gauthier" class="h-24 w-auto rounded-full mx-auto mb-6 border-4 border-slate-800 shadow-xl">
                 <span class="text-sky-400 text-xs font-bold uppercase tracking-wider block mb-3">L'Esprit ROIA</span>
                 <h2 class="text-3xl font-bold text-white mb-6">Une approche pragmatique, ancrée dans la réalité terrain</h2>
                 <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-6 font-light">
@@ -389,12 +390,12 @@
           v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
       })(document, 'script');
 
-      // Fonction sur-mesure pour forcer l'ouverture du Widget IA via le bouton Hero
+      // Fonction sur-mesure pour forcer l'ouverture du Widget IA
       function openVfBot() {
         if (window.voiceflow && window.voiceflow.chat) {
             window.voiceflow.chat.open();
         } else {
-            // Repli de secours si Voiceflow n'est pas encore totalement chargé
+            // Repli de secours vers le formulaire si Voiceflow n'est pas prêt
             window.location.href = "#contact";
         }
       }
