@@ -97,8 +97,17 @@
             .hero h1 { font-size: 42px; }
             .stats-bar h2 { font-size: 70px; }
             .sim-input-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+            }
+    }
+
+    /* Forcer le mode sombre sur le widget Voiceflow */
+    #voiceflow-chat-frame {
+        color-scheme: dark !important;
+    }
+    iframe[id^="voiceflow-chat"] {
+        filter: invert(0.9) hue-rotate(180deg);
+    }
+</style>
 </head>
 <body>
 
