@@ -377,7 +377,7 @@
         calculateAutonomy();
     </script>
 
-    <script type="text/javascript">
+   <script type="text/javascript">
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
@@ -387,7 +387,7 @@
               versionID: 'production'
             });
           }
-          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
       })(document, 'script');
 
       // Fonction sur-mesure pour forcer l'ouverture du Widget IA
@@ -395,7 +395,6 @@
         if (window.voiceflow && window.voiceflow.chat) {
             window.voiceflow.chat.open();
         } else {
-            // Repli de secours vers le formulaire si Voiceflow n'est pas prêt
             window.location.href = "#contact";
         }
       }
