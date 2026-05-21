@@ -382,7 +382,9 @@
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             window.voiceflow.chat.load({
-              verify: { projectID: '6e0f5959f29ca778157c6278' },
+              verify: { 
+                projectID: '6e0f5959f29ca778157c6278'
+              },
               url: 'https://general-runtime.voiceflow.com',
               versionID: 'production'
             });
@@ -392,7 +394,7 @@
 
       // Fonction sur-mesure pour forcer l'ouverture du Widget IA
       function openVfBot() {
-        if (window.voiceflow && window.voiceflow.chat && typeof window.voiceflow.chat.open === 'function') {
+        if (window.voiceflow && window.voiceflow.chat) {
             window.voiceflow.chat.open();
         } else {
             window.location.href = "#contact";
