@@ -485,42 +485,11 @@
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: '6a2f5959f29ca778157c6278' }, // ID mis à jour !
-          url: 'https://general-runtime.voiceflow.com',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          },
-          config: {
-            autostart: true, 
-            showLauncher: true
-          }
+          verify: { projectID: '6a2f5959f29ca778157c6278' }
         });
       }
       v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
-
-  // Gère la transition d'apparition smooth
-  document.addEventListener('voiceflow:chat:ready', function() {
-    var vfIframe = document.getElementById('vf-chat-iframe-container');
-    if (vfIframe) {
-        vfIframe.style.opacity = '0';
-        vfIframe.style.transition = 'opacity 0.6s ease';
-        vfIframe.style.transform = 'translateY(15px)';
-
-        setTimeout(function() {
-            vfIframe.style.opacity = '1';
-            vfIframe.style.transform = 'translateY(0)';
-        }, 100);
-    }
-  });
-
-  function openVfBot() {
-    if (window.voiceflow && window.voiceflow.chat) {
-        window.voiceflow.chat.open();
-    } else {
-        window.location.href = "#contact";
-    }
-  }
 </script>
 </body>
 </html>
