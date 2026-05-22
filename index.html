@@ -485,22 +485,15 @@
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: '6a2f5959f29ca778157c6278' },
-          // On bascule sur le runtime agentique moderne
+          verify: { projectID: '6a1054a66ab3007345fa7def' },
           url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production'
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          }
         });
       }
       v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
-
-  function openVfBot() {
-    if (window.voiceflow && window.voiceflow.chat) {
-        window.voiceflow.chat.open();
-    } else {
-        window.location.href = "#contact";
-    }
-  }
 </script>
 </body>
 </html>
