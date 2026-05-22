@@ -368,9 +368,8 @@
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             window.voiceflow.chat.load({
-              verify: { projectID: '6a0f5959f29ca778157c6278' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production'
+              verify: { projectID: '6a0f5959f29ca778157c6278' }
+              // On vire volontairement url, versionID et persistence pour stopper la 500
             });
           }
           v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
