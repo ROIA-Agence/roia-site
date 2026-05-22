@@ -370,10 +370,10 @@
             window.voiceflow.chat.load({
               verify: { projectID: '6a0f5959f29ca778157c6278' },
               url: 'https://general-runtime.voiceflow.com',
-              versionID: 'Main'
+              versionID: 'development' // En minuscules strictes pour la V2
             });
           }
-          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
       })(document, 'script');
 
       function openVfBot() {
