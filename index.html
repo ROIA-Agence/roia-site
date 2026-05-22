@@ -368,8 +368,10 @@
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             window.voiceflow.chat.load({
-              verify: { apiKey: 'VF.DM.6a0f93d3f4b3385ef7262539.RPYB33AhY1lzeGZB' }
-              // On retire versionID pour laisser la clé DM afficher ton design actuel
+              verify: { 
+                projectID: '6a0f5959f29ca778157c6279',
+                apiKey: 'VF.DM.6a0f93d3f4b3385ef7262539.RPYB33AhY1lzeGZB'
+              }
             });
           }
           v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
