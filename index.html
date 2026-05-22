@@ -27,6 +27,43 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Custom Sliders - Electric Dark Aesthetic */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #020617; /* Slate 950 */
+            height: 6px;
+            border-radius: 9999px;
+            border: 1px border;
+            border-color: #1e293b;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #38bdf8; /* Sky 400 */
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.6); /* Effet néon */
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.1s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            background: #0ea5e9; /* Sky 500 */
+        }
+
+        /* Focus et états sur les inputs numériques et selects */
+        select, input[type="number"] {
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        
+        select:focus, input[type="number"]:focus {
+            border-color: #38bdf8 !important;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-white">
@@ -137,30 +174,30 @@
             </div>
         </section>
 
-        <section id="simulateur" class="py-20 lg:py-28 border-b border-slate-900 bg-slate-900/20">
+       <section id="simulateur" class="py-20 lg:py-28 border-b border-slate-900 bg-gradient-to-b from-slate-950 to-slate-900/40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-5">
                         <span class="text-sky-400 text-xs font-bold uppercase tracking-wider block mb-3">Démonstration Technique</span>
                         <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Simulateur Prédictif d'Autonomie</h2>
-                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
+                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6 font-light">
                             Développé initialement pour l’industrie de la micro-mobilité électrique (e-commerces de vélos et trottinettes), ce module interactif illustre notre savoir-faire en traitement de variables physiques complexes.
                         </p>
-                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed font-light">
                             En croisant la capacité de la batterie, le poids de l'utilisateur, la température extérieure et le type de relief, notre formule estime l’autonomie réelle en temps réel, réduisant drastiquement les demandes de support et retours SAV clients.
                         </p>
                     </div>
                     
-                    <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl">
-                        <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-sliders text-sky-400"></i> Outil de Simulation d'Autonomie
+                    <div class="lg:col-span-7 bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-2xl shadow-sky-500/[0.02]">
+                        <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 tracking-wide">
+                            <i class="fa-solid fa-sliders text-sky-400 animate-pulse"></i> Outil de Simulation d'Autonomie
                         </h3>
                         
                         <div class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Tension de la Batterie (V)</label>
-                                    <select id="voltage" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-sky-500 text-sm transition-colors">
+                                    <select id="voltage" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none text-sm transition-all cursor-pointer">
                                         <option value="36">36V (Standard urbain)</option>
                                         <option value="48" selected>48V (Performance / VTT)</option>
                                         <option value="52">52V (Haute autonomie)</option>
@@ -169,29 +206,29 @@
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Capacité de l'Ampérage (Ah)</label>
-                                    <input type="number" id="amperage" value="15" min="5" max="40" step="0.5" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-sky-500 text-sm transition-colors">
+                                    <input type="number" id="amperage" value="15" min="5" max="40" step="0.5" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none text-sm transition-all">
                                 </div>
                             </div>
 
                             <div>
                                 <div class="flex justify-between items-center mb-2">
                                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Poids du Conducteur + Équipement</label>
-                                    <span id="weightVal" class="text-sm font-bold text-sky-400">80 kg</span>
+                                    <span id="weightVal" class="text-sm font-bold text-sky-400 drop-shadow-[0_0_6px_rgba(56,189,248,0.4)]">80 kg</span>
                                 </div>
-                                <input type="range" id="weight" min="50" max="130" value="80" class="w-full accent-sky-500 bg-slate-950 h-2 rounded-lg appearance-none cursor-pointer">
+                                <input type="range" id="weight" min="50" max="130" value="80" class="w-full bg-slate-950 h-2 rounded-lg appearance-none cursor-pointer transition-all">
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <div class="flex justify-between items-center mb-2">
                                         <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Température</label>
-                                        <span id="tempVal" class="text-sm font-bold text-sky-400">20°C</span>
+                                        <span id="tempVal" class="text-sm font-bold text-sky-400 drop-shadow-[0_0_6px_rgba(56,189,248,0.4)]">20°C</span>
                                     </div>
-                                    <input type="range" id="temp" min="-5" max="40" value="20" class="w-full accent-sky-500 bg-slate-950 h-2 rounded-lg appearance-none cursor-pointer">
+                                    <input type="range" id="temp" min="-5" max="40" value="20" class="w-full bg-slate-950 h-2 rounded-lg appearance-none cursor-pointer transition-all">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Type de Relief (Terrain)</label>
-                                    <select id="terrain" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-sky-500 text-sm transition-colors">
+                                    <select id="terrain" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none text-sm transition-all cursor-pointer">
                                         <option value="flat">Plat (Asphalte fluide)</option>
                                         <option value="mixed" selected>Mixte (Vallonné / Urbain standard)</option>
                                         <option value="hilly">Montagneux (Fort dénivelé / Offroad)</option>
@@ -199,18 +236,87 @@
                                 </div>
                             </div>
 
-                            <div class="bg-slate-950 border border-slate-800/60 rounded-xl p-5 text-center mt-4">
+                            <div class="bg-slate-950/80 border border-sky-500/20 rounded-xl p-5 text-center mt-4 shadow-inner relative overflow-hidden">
+                                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.05),transparent_70%)]"></div>
                                 <span class="text-xs text-slate-500 font-medium uppercase tracking-widest block mb-1">Estimation de l'Autonomie Réelle</span>
-                                <div class="text-3xl sm:text-4xl font-black text-white tracking-tight">
-                                    <span id="resultKm" class="text-sky-400">--</span> <span class="text-2xl">km</span>
+                                <div class="text-4xl font-black text-white tracking-tight relative z-10">
+                                    <span id="resultKm" class="text-sky-400 drop-shadow-[0_0_12px_rgba(56,189,248,0.4)]">--</span> <span class="text-2xl font-light text-slate-300">km</span>
                                 </div>
-                                <span class="text-[10px] text-slate-500 block mt-2">Calcul basé sur un rendement moteur standard de 85% à vitesse stabilisée de 22km/h.</span>
+                                <span class="text-[10px] text-slate-500 block mt-2 relative z-10">Calcul basé sur un rendement moteur standard de 85% à vitesse stabilisée de 22km/h.</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const voltage = document.getElementById('voltage');
+                const amperage = document.getElementById('amperage');
+                const weight = document.getElementById('weight');
+                const weightVal = document.getElementById('weightVal');
+                const temp = document.getElementById('temp');
+                const tempVal = document.getElementById('tempVal');
+                const terrain = document.getElementById('terrain');
+                const resultKm = document.getElementById('resultKm');
+
+                function calculateAutonomy() {
+                    let V = parseFloat(voltage.value);
+                    let Ah = parseFloat(amperage.value);
+                    let W = parseFloat(weight.value);
+                    let T = parseFloat(temp.value);
+                    let tMode = terrain.value;
+
+                    if (isNaN(V) || isNaN(Ah) || isNaN(W) || isNaN(T)) return;
+
+                    // Capacité énergétique brute en Wh
+                    let wh = V * Ah;
+
+                    // Consommation de base (Wh/km) pour un conducteur de référence à 80kg
+                    let baseConsumption = 12; 
+
+                    // Facteur Poids
+                    let weightFactor = 1 + ((W - 80) / 100) * 0.8;
+
+                    // Facteur Température (perte d'efficacité chimique sous 20°C)
+                    let tempFactor = 1;
+                    if (T < 20) {
+                        tempFactor = 1 + ((20 - T) / 35) * 0.25;
+                    }
+
+                    // Facteur Relief
+                    let terrainFactor = 1;
+                    if (tMode === 'mixed') terrainFactor = 1.25;
+                    if (tMode === 'hilly') terrainFactor = 1.65;
+
+                    // Consommation ajustée
+                    let finalConsumption = baseConsumption * weightFactor * tempFactor * terrainFactor;
+
+                    // Autonomie finale estimée (Rendement estimé à 88%)
+                    let km = (wh / finalConsumption) * 0.88;
+
+                    resultKm.textContent = Math.round(km);
+                }
+
+                weight.addEventListener('input', function() {
+                    weightVal.textContent = this.value + ' kg';
+                    calculateAutonomy();
+                });
+
+                temp.addEventListener('input', function() {
+                    tempVal.textContent = this.value + '°C';
+                    calculateAutonomy();
+                });
+
+                voltage.addEventListener('change', calculateAutonomy);
+                amperage.addEventListener('input', calculateAutonomy);
+                terrain.addEventListener('change', calculateAutonomy);
+
+                // Lancement initial au chargement de la page
+                calculateAutonomy();
+            });
+        </script>
 
         <section id="cas-usage" class="py-20 lg:py-28 border-b border-slate-900 bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
