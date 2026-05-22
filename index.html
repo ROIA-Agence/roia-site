@@ -369,9 +369,12 @@
           v.onload = function() {
             window.voiceflow.chat.load({
               verify: { 
-                projectID: '6a0f5959f29ca778157c6279',
                 apiKey: 'VF.DM.6a0f93d3f4b3385ef7262539.RPYB33AhY1lzeGZB'
-              }
+              },
+              render: {
+                mode: 'overlay'
+              },
+              autostart: false
             });
           }
           v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
