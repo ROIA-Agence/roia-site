@@ -364,19 +364,23 @@
     </script>
 
 <script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '6a0f5959f29ca778157c6278' },
-          url: 'https://general-runtime.voiceflow.com',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '6a0f5959f29ca778157c6279' } // ID corrigé se terminant par 9
+            });
           }
-        });
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+
+      function openVfBot() {
+        if (window.voiceflow && window.voiceflow.chat) {
+            window.voiceflow.chat.open();
+        } else {
+            window.location.href = "#contact";
+        }
       }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
+    </script>
 </body>
 </html>
