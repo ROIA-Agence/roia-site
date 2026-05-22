@@ -363,14 +363,15 @@
         calculateAutonomy();
     </script>
 
-    <script type="text/javascript">
+<script type="text/javascript">
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             window.voiceflow.chat.load({
               verify: { projectID: '6e0f5959f29ca778157c6278' },
               url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production'
+              versionID: 'production',
+              persistence: 'none' // Force Voiceflow à ignorer l'ancien cache bleu
             });
           }
           v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
